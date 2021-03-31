@@ -1,12 +1,12 @@
 /*
-	ACE by HTML5 UP
+	Verti by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 (function($) {
 
-	var $window = $(window),
+	var	$window = $(window),
 		$body = $('body');
 
 	// Breakpoints.
@@ -17,13 +17,26 @@
 			small:   [ null,      '736px'  ]
 		});
 
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
+
+	// Dropdowns.
+		$('#nav > ul').dropotron({
+			mode: 'fade',
+			noOpenerFade: true,
+			speed: 300
+		});
+
 	// Nav.
 
-		// Title Bar.
+		// Toggle.
 			$(
-				'<div id="titleBar">' +
+				'<div id="navToggle">' +
 					'<a href="#navPanel" class="toggle"></a>' +
-					'<span class="title">' + $('#logo').html() + '</span>' +
 				'</div>'
 			)
 				.appendTo($body);
